@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Padhaku Education and Technology</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',sans-serif;color:#1a1a1a;background:#f9f7f0}
+
+/* BRAND COLORS */
+:root{
+  --gold:#C9A227;
+  --gold-light:#E8C84A;
+  --gold-dark:#A07E10;
+  --black:#0a0a0a;
+  --black-soft:#111111;
+  --black-card:#181818;
+  --off-white:#faf8f2;
+  --text-muted:#8a7a50;
+}
+
+/* NAV */
+nav{background:var(--black);padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(201,162,39,.2)}
+.logo-wrap{display:flex;align-items:center;gap:10px}
+.logo-img{height:48px;width:48px;object-fit:contain}
+.logo-text{display:flex;flex-direction:column}
+.logo-name{color:var(--gold);font-size:1.15rem;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+.logo-sub{color:rgba(201,162,39,.6);font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase}
+.nav-links{display:flex;gap:1.5rem}
+.nav-links a{color:#a89060;font-size:.88rem;letter-spacing:.5px;transition:color .2s;text-decoration:none}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--black);padding:.45rem 1.2rem;border-radius:50px;font-size:.82rem;font-weight:700;letter-spacing:.5px;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--gold-light)}
+
+/* HERO */
+.hero{background:var(--black);color:#fff;padding:5.5rem 2rem 4.5rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(201,162,39,.08) 0%,transparent 70%);pointer-events:none}
+.hero-logo{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:2rem}
+.hero-logo-img{height:80px;width:80px;object-fit:contain;filter:drop-shadow(0 0 12px rgba(201,162,39,.4))}
+.hero-logo-text .name{font-size:2.2rem;font-weight:900;color:var(--gold);letter-spacing:4px;text-transform:uppercase;line-height:1}
+.hero-logo-text .sub{font-size:.7rem;color:rgba(201,162,39,.6);letter-spacing:3px;text-transform:uppercase;margin-top:2px}
+.hero h1{font-size:2.5rem;font-weight:800;line-height:1.25;margin-bottom:1rem;color:#fff}
+.hero h1 span{color:var(--gold)}
+.hero p{font-size:1rem;color:#9a8a60;max-width:580px;margin:0 auto 2.5rem;line-height:1.7}
+.btn-gold{background:var(--gold);color:var(--black);padding:.8rem 2rem;border-radius:50px;font-size:.95rem;font-weight:700;border:none;cursor:pointer;letter-spacing:.5px;transition:all .2s}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--gold);padding:.8rem 2rem;border-radius:50px;font-size:.95rem;font-weight:600;border:1.5px solid rgba(201,162,39,.4);cursor:pointer;margin-left:1rem;transition:all .2s;letter-spacing:.5px}
+.btn-ghost:hover{border-color:var(--gold);background:rgba(201,162,39,.06)}
+.hero-divider{width:60px;height:2px;background:var(--gold);margin:2.5rem auto 0;opacity:.4}
+.hero-badges{margin-top:2rem;display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.badge{background:rgba(201,162,39,.08);border:1px solid rgba(201,162,39,.25);color:rgba(201,162,39,.85);padding:.4rem 1rem;border-radius:50px;font-size:.78rem;letter-spacing:.5px}
+
+/* SECTION COMMON */
+.section{padding:4.5rem 2rem;max-width:1100px;margin:0 auto}
+.section-title{text-align:center;margin-bottom:3rem}
+.section-title h2{font-size:1.9rem;font-weight:800;color:var(--black)}
+.gold-line{width:48px;height:3px;background:var(--gold);margin:.75rem auto 0;border-radius:2px}
+.section-title p{color:#6b5e3a;margin-top:1rem;font-size:.95rem}
+
+/* SERVICES */
+.services-wrap{background:var(--off-white);padding:4.5rem 2rem}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto}
+.service-card{background:#fff;border-radius:16px;padding:2rem;border:1px solid rgba(201,162,39,.15);transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+.service-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.service-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(201,162,39,.12)}
+.service-card:hover::after{transform:scaleX(1)}
+.service-icon{width:54px;height:54px;border-radius:12px;background:var(--black);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.25rem}
+.service-card h3{font-size:1.05rem;font-weight:700;color:var(--black);margin-bottom:.6rem}
+.service-card p{color:#6b5e3a;font-size:.88rem;line-height:1.65}
+.service-tag{display:inline-block;margin-top:1rem;background:rgba(201,162,39,.1);color:var(--gold-dark);font-size:.72rem;padding:.3rem .85rem;border-radius:50px;font-weight:700;letter-spacing:.5px;border:1px solid rgba(201,162,39,.2)}
+
+/* AI WIDGET */
+.ai-section{background:var(--black);padding:5rem 2rem}
+.ai-inner{max-width:740px;margin:0 auto;text-align:center}
+.ai-inner h2{color:#fff;font-size:1.8rem;font-weight:800;margin-bottom:.5rem}
+.ai-inner h2 span{color:var(--gold)}
+.ai-inner p{color:#7a6a42;font-size:.9rem;margin-bottom:2.5rem;line-height:1.6}
+.ai-box{background:#161616;border-radius:20px;padding:2rem;text-align:left;border:1px solid rgba(201,162,39,.2)}
+.ai-box label{font-size:.82rem;font-weight:700;color:var(--gold);display:block;margin-bottom:.6rem;letter-spacing:.8px;text-transform:uppercase}
+.ai-box textarea{width:100%;background:#0d0d0d;border:1.5px solid rgba(201,162,39,.2);border-radius:10px;padding:.9rem;font-size:.93rem;font-family:inherit;resize:vertical;min-height:88px;outline:none;transition:border .2s;color:#e0d4a8}
+.ai-box textarea:focus{border-color:var(--gold)}
+.ai-box textarea::placeholder{color:#4a4030}
+.ai-examples{display:flex;gap:.5rem;flex-wrap:wrap;margin:.8rem 0 1.25rem}
+.ex-chip{background:rgba(201,162,39,.08);color:#9a8050;border:1px solid rgba(201,162,39,.2);border-radius:50px;font-size:.76rem;padding:.3rem .85rem;cursor:pointer;transition:all .2s;letter-spacing:.3px}
+.ex-chip:hover{background:rgba(201,162,39,.18);color:var(--gold);border-color:rgba(201,162,39,.5)}
+#ai-btn{background:var(--gold);color:var(--black);border:none;padding:.85rem 2rem;border-radius:50px;font-size:.92rem;font-weight:700;cursor:pointer;transition:background .2s;width:100%;letter-spacing:.5px}
+#ai-btn:hover{background:var(--gold-light)}
+#ai-btn:disabled{background:#3a3020;color:#7a6a42;cursor:not-allowed}
+#ai-result{margin-top:1.5rem;display:none}
+.result-label{font-size:.72rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:.6rem}
+.result-box{background:#0d0d0d;border:1.5px solid rgba(201,162,39,.25);border-radius:12px;padding:1.25rem;font-size:.9rem;color:#d4c48a;line-height:1.75}
+.loading-dots span{display:inline-block;width:8px;height:8px;background:var(--gold);border-radius:50%;margin:0 3px;animation:bounce .8s infinite}
+.loading-dots span:nth-child(2){animation-delay:.2s}
+.loading-dots span:nth-child(3){animation-delay:.4s}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* WHY */
+.why-wrap{background:#fff;padding:4.5rem 2rem}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;max-width:1100px;margin:1rem auto 0}
+.why-card{text-align:center;padding:2rem 1rem;background:var(--off-white);border-radius:14px;border:1px solid rgba(201,162,39,.12)}
+.why-num{font-size:2.2rem;font-weight:900;color:var(--gold)}
+.why-card h4{font-size:.9rem;font-weight:700;color:var(--black);margin:.5rem 0}
+.why-card p{font-size:.82rem;color:#6b5e3a;line-height:1.55}
+
+/* CTA */
+.cta-section{background:var(--black);color:#fff;text-align:center;padding:5rem 2rem;border-top:1px solid rgba(201,162,39,.15)}
+.cta-section h2{font-size:1.9rem;font-weight:800;margin-bottom:.75rem}
+.cta-section h2 span{color:var(--gold)}
+.cta-section p{color:#7a6a42;margin-bottom:2rem;font-size:.95rem;max-width:480px;margin-left:auto;margin-right:auto}
+.contact-strip{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}
+.contact-item{background:rgba(201,162,39,.08);border:1px solid rgba(201,162,39,.2);color:#9a8050;padding:.55rem 1.1rem;border-radius:50px;font-size:.82rem;letter-spacing:.3px}
+
+/* FOOTER */
+footer{background:#050505;color:#3a3020;text-align:center;padding:1.5rem;font-size:.8rem;border-top:1px solid rgba(201,162,39,.1)}
+footer span{color:rgba(201,162,39,.5)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo-wrap">
+    <img class="logo-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230a0a0a'/%3E%3Ctext x='50' y='45' text-anchor='middle' font-size='14' font-weight='900' fill='%23C9A227' font-family='serif' letter-spacing='1'%3EPADHAKU%3C/text%3E%3Ctext x='50' y='62' text-anchor='middle' font-size='6' fill='%23C9A22780' font-family='sans-serif' letter-spacing='1'%3EEducation %26 Technology%3C/text%3E%3C/svg%3E" alt="Padhaku Logo"/>
+    <div class="logo-text">
+      <span class="logo-name">Padhaku</span>
+      <span class="logo-sub">Education &amp; Technology</span>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#ai-widget">Solutions</a>
+    <a href="#why">Why Us</a>
+    <a href="#contact" class="nav-cta">Contact Us</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-logo">
+    <div class="hero-logo-text">
+      <div class="name">PADHAKU</div>
+      <div class="sub">Education &amp; Technology</div>
+    </div>
+  </div>
+  <h1>Empowering Growth Through<br/><span>Education &amp; Innovation</span></h1>
+  <p>From world-class training seminars to high-impact events and powerful digital marketing — Padhaku is your partner in progress.</p>
+  <button class="btn-gold">Get Started</button>
+  <button class="btn-ghost">Our Services</button>
+  <div class="hero-divider"></div>
+  <div class="hero-badges">
+    <div class="badge">🎓 Educational Seminars</div>
+    <div class="badge">📅 Events Management</div>
+    <div class="badge">📣 Digital Marketing</div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<div id="services" class="services-wrap">
+  <div class="section-title">
+    <h2>What We Offer</h2>
+    <div class="gold-line"></div>
+    <p>Comprehensive solutions tailored to educate, connect, and grow your brand</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">📅</div>
+      <h3>Events Management</h3>
+      <p>We plan and execute impactful corporate events, workshops, expos, and conferences — end to end, stress-free and seamlessly delivered.</p>
+      <span class="service-tag">Corporate · Workshops · Expos</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎓</div>
+      <h3>Educational Seminars &amp; Training</h3>
+      <p>Expert-led seminars and professional training programs designed to upskill teams and unlock human potential at every level.</p>
+      <span class="service-tag">Upskilling · Certification · Leadership</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📣</div>
+      <h3>Digital Marketing Services</h3>
+      <p>From SEO and social media to content strategy and paid ads — we amplify your brand across every digital channel with precision.</p>
+      <span class="service-tag">SEO · Social Media · Ads</span>
+    </div>
+  </div>
+</div>
+
+<!-- AI WIDGET -->
+<div id="ai-widget" class="ai-section">
+  <div class="ai-inner">
+    <h2>Find Your <span>Perfect Solution</span></h2>
+    <p>Describe your goal or challenge and our AI advisor will craft a personalized Padhaku recommendation just for you — instantly.</p>
+    <div class="ai-box">
+      <label>What are you trying to achieve?</label>
+      <textarea id="user-input" placeholder="e.g. I want to train my staff on leadership skills, or I need to promote my new product launch online..."></textarea>
+      <div class="ai-examples">
+        <span class="ex-chip" onclick="fillExample(this)">Train my team</span>
+        <span class="ex-chip" onclick="fillExample(this)">Promote my brand online</span>
+        <span class="ex-chip" onclick="fillExample(this)">Organize a corporate event</span>
+        <span class="ex-chip" onclick="fillExample(this)">Launch a new product</span>
+      </div>
+      <button id="ai-btn" onclick="getRecommendation()">Get My Personalized Recommendation</button>
+      <div id="ai-result">
+        <div class="result-label">Padhaku Recommends</div>
+        <div class="result-box" id="result-content"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY -->
+<div id="why" class="why-wrap">
+  <div class="section-title">
+    <h2>Why Padhaku?</h2>
+    <div class="gold-line"></div>
+    <p>Trusted by businesses and institutions across Nepal for results that matter</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-num">200+</div>
+      <h4>Events Delivered</h4>
+      <p>Successfully managed events of all sizes across industries</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">5000+</div>
+      <h4>Professionals Trained</h4>
+      <p>Upskilled individuals through structured training programs</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">150+</div>
+      <h4>Brands Amplified</h4>
+      <p>Helped businesses grow their digital presence and reach</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">98%</div>
+      <h4>Client Satisfaction</h4>
+      <p>Our clients keep coming back — and bring their networks too</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div id="contact" class="cta-section">
+  <h2>Ready to Grow with <span>Padhaku</span>?</h2>
+  <p>Let's talk about your goals. Our team is ready to help you succeed.</p>
+  <button class="btn-gold" style="font-size:.95rem">Schedule a Free Consultation</button>
+  <div class="contact-strip">
+    <div class="contact-item">📧 padhakuinternational@gmail.com</div>
+    <div class="contact-item">📞 +977 9709091588</div>
+    <div class="contact-item">📍 Kathmandu, Nepal</div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2026 <span>Padhaku Education and Technology</span>. All rights reserved.
+</footer>
+
+<script>
+function fillExample(el){
+  document.getElementById('user-input').value=el.textContent;
+}
+async function getRecommendation(){
+  const input=document.getElementById('user-input').value.trim();
+  if(!input)return;
+  const btn=document.getElementById('ai-btn');
+  const resultDiv=document.getElementById('ai-result');
+  const resultContent=document.getElementById('result-content');
+  btn.disabled=true;btn.textContent='Thinking...';
+  resultDiv.style.display='block';
+  resultContent.innerHTML='<div class="loading-dots"><span></span><span></span><span></span></div>';
+  const sys=`You are a friendly advisor for Padhaku Education and Technology — a company based in Nepal offering:
+1. Events Management: planning corporate events, workshops, expos, conferences.
+2. Educational Seminars & Training: expert-led seminars and professional upskilling programs.
+3. Digital Marketing Services: SEO, social media, content strategy, paid ads.
+When a user describes their goal, write a warm personalized recommendation (3-4 sentences) that identifies which Padhaku service(s) fit their need, explains WHY it fits them specifically, and ends with a confident call to action to contact Padhaku. Keep it concise, professional, and human. No bullet points — flowing prose only.`;
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:sys,messages:[{role:'user',content:input}]})
+    });
+    const data=await res.json();
+    resultContent.textContent=data.content?.[0]?.text||'Sorry, please try again.';
+  }catch(e){resultContent.textContent='Something went wrong. Please try again.';}
+  btn.disabled=false;btn.textContent='Get My Personalized Recommendation';
+}
+</script>
+</body>
+</html>
